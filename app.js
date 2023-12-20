@@ -1,4 +1,5 @@
 const BASE_URL = "https://api.openweathermap.org"
+const _BASE_URL = "https://akunov45.github.io/weather"
 const api = {
   weather: "/data/2.5/weather?q="
 }
@@ -53,24 +54,24 @@ function setStatusText(status) {
   switch (status) {
     case "Clouds":
       return {
-        img: "/assets/clouds.png",
+        img: _BASE_URL + "/assets/clouds.png",
         text: "Облачно"
       };
     case "Clear":
       return {
-        img: "/assets/sunny.png",
+        img: _BASE_URL + "/assets/sunny.png",
         text: "Ясно"
       };
     case "Snow":
       return {
-        img: "/assets/snow.png",
+        img: _BASE_URL + "/assets/snow.png",
         text: "Снег"
       };
     case "Smoke":
     case "Fog":
     case "Mist":
       return {
-        img: "/assets/smoke.png",
+        img: _BASE_URL + "/assets/smoke.png",
         text: "Туман"
       };
     default: return "New Status"
