@@ -125,8 +125,11 @@ button {
 .card p {
   color: #000;
   font-family: Rubik;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
+}
+.card p span {
+  font-size: 14px;
 }
 
 /* spinner  */

@@ -11,6 +11,8 @@ const btnShow = document.getElementById("btnShow");
 const textField = document.getElementById("textField");
 const weatherImg = document.getElementById("weatherImg");
 const spinner = document.getElementById("spinner");
+const windP = document.getElementById("wind");
+const humidityP = document.getElementById("humidity");
 
 async function getWeather(name = "Bishkek") {
   try {
@@ -37,36 +39,38 @@ textField.addEventListener("keydown", ({ key }) => {
   if (key === "Enter" && textField.value.trim()) getWeather(textField.value)
 })
 
-function renderWeather({ name, sys, main, weather }) {
+function renderWeather({ name, sys, main, weather, wind }) {
   const { text, img } = setStatusText(weather[0].main)
   cityName.innerHTML = `${name} <span>${sys.country}</span>`
   temp.innerHTML = `${(main.temp - 273.15).toFixed()} <span>°c</span>`
   weatherStatus.innerHTML = text
   weatherImg.src = img
+  windP.innerHTML = `<p> Ветер: <span>${wind.speed} км/ч</span></p>`
+  humidityP.innerHTML = `<p> Влажность: <span>${main.humidity} %</span></p>`
 }
 
 function setStatusText(status) {
   switch (status) {
     case "Clouds":
       return {
-        img: "/assets/clouds.png",
+        img: "/clouds.png",
         text: "Облачно"
       };
     case "Clear":
       return {
-        img: "/assets/sunny.png",
+        img: "/sunny.png",
         text: "Ясно"
       };
     case "Snow":
       return {
-        img: "/assets/snow.png",
+        img: "/snow.png",
         text: "Снег"
       };
     case "Smoke":
     case "Fog":
     case "Mist":
       return {
-        img: "/assets/smoke.png",
+        img: "/smoke.png",
         text: "Туман"
       };
     default: return "New Status"
