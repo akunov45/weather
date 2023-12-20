@@ -53,24 +53,24 @@ function setStatusText(status) {
   switch (status) {
     case "Clouds":
       return {
-        img: "/clouds.png",
+        img: "/assets/clouds.png",
         text: "Облачно"
       };
     case "Clear":
       return {
-        img: "/sunny.png",
+        img: "/assets/sunny.png",
         text: "Ясно"
       };
     case "Snow":
       return {
-        img: "/snow.png",
+        img: "/assets/snow.png",
         text: "Снег"
       };
     case "Smoke":
     case "Fog":
     case "Mist":
       return {
-        img: "/smoke.png",
+        img: "/assets/smoke.png",
         text: "Туман"
       };
     default: return "New Status"
